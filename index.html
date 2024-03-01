@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Planificador de Procesos</title>
+  </head>
+  <body>
+    <div class="chartMenu">
+        <h1>Algoritmos de despacho</h1>
+    </div>
+
+    <div class="main">
+      <div class="card">
+        <div class="card-header">
+          <h1>Datos de los procesos</h1>
+        </div>
+        <div class="card-body">
+          <form action="">
+              <!-- Formulario para ingresar datos de procesos -->
+            <label class="form-label" for="">Seleccione el metodo a trabajar: </label>
+            <select class="form-select" aria-label="Default select example" id="seleccionAlgoritmo">
+              <option selected disabled>Seleccione un algoritmo:</option>
+              <optgroup label="No expropiativos">
+                <option>FIFO</option>
+                <option>SJF</option>
+                <option>Prioridades</option>
+              </optgroup>
+              <optgroup label="Expropiativos">
+                <option>Round Robin</option>
+              </optgroup> 
+            </select>
+            <div class="mb-3 datos">
+              <label class="form-label" for="tiempoLlegada">Tiempo de Llegada:</label>
+              <input class="form-control" min="0" type="number" id="tiempoLlegada">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="tiempoRafaga">Tiempo de Ejecución:</label>
+              <input class="form-control" type="number" id="tiempoRafaga" min="1">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="prioridad">Prioridad:</label>
+              <input class="form-control" type="number" id="prioridad" value=" " disabled>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="Quantum">Quantum:</label>
+              <input class="form-control" type="number" id="quantum" value=" " disabled>
+            </div>
+
+            <input type="button" class="btn btn-primary" onclick="agregarProceso()" value="Agregar Proceso">
+
+          </form>
+          
+
+        </div>
+      </div>
+
+      <div class="planificacion">
+        <!-- Tabla para mostrar la planificación -->
+        <div class="card tabla">
+          <div class="card-header">
+            <h2 id="text_planificacion">Planificación</h2>
+          </div>
+          <div class="card-body">
+            <table id="tablaProcesos" class="table">
+              <tr>
+                  <th>Proceso</th>
+                  <th>Tiempo de Llegada</th>
+                  <th>Rafaga de CPU (s)</th>
+                  <th>Prioridad</th>
+                  <th>Tiempo de Espera (s)</th>
+                  <th>Tiempo de Sistema (s)</th>
+              </tr>
+            </table>
+    
+          <!-- Botón para ejecutar la planificación -->
+          <button class="btn btn-primary" onclick="planificarProcesos()" id="miBoton">Planificar</button>
+          <button class="btn btn-danger" onclick="borrarDatos()">Borrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text_resultado">Resultados:</h2>
+    <div class="contenedor_resultados">
+      <div class="resultados">
+        <!-- Resultado de la planificación -->
+        
+        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Tiempo Promedio de Espera</div>
+          <div class="card-body">
+            <p id="resultado_espera">---</p>
+          </div>
+        </div>
+        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Tiempo Promedio del sistema</div>
+          <div class="card-body">
+            <p id="resultado_sistema">---</p>
+          </div>
+        </div>
+      </div>
+       
+        <div class="chartCard">
+          <div class="chartBox">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+
+  </body>
+</html>
+

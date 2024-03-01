@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+  .chartMenu {
+    width: 100%;
+    height: 60px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+  }
+  .chartMenu h1 {
+    padding: 10px;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+  .chartCard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .chartBox {
+    width: 1000px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
+  .datos{
+    margin-top: 10px;
+  }
+  .card-header h1,
+  .card-header h2{
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .card{
+    flex: 25%;
+  }
+  .main{
+    display: flex;
+    margin: 20px;
+  }
+  .planificacion{
+    margin-left: 10px;
+    flex: 80%;
+  }
+  .tabla{
+    width: 100%;
+  }
+  .resultados{
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .text_resultado{
+    margin: 20px;
+  }
+  .resultados .card{
+    width: 100%;
+  }
+  .contenedor_resultados{
+    display: flex;
+  }
